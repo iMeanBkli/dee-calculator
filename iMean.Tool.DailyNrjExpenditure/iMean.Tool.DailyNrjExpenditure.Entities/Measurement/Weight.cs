@@ -1,4 +1,4 @@
-﻿namespace iMean.Tool.DailyNrjExpenditure.Entities;
+﻿namespace iMean.Tool.DailyNrjExpenditure.Entities.Measurement;
 
 public class Weight : Measure<decimal>
 {

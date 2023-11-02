@@ -1,4 +1,6 @@
-﻿namespace iMean.Tool.DailyNrjExpenditure.Entities;
+﻿using iMean.Tool.DailyNrjExpenditure.Entities.Measurement;
+
+namespace iMean.Tool.DailyNrjExpenditure.Entities;
 
 public class BodyInfo
 {

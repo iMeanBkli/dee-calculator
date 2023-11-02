@@ -1,6 +1,6 @@
-﻿namespace iMean.Tool.DailyNrjExpenditure.Entities;
+﻿namespace iMean.Tool.DailyNrjExpenditure.Entities.Measurement;
 
-public abstract class Measure<TValue> 
+public abstract class Measure<TValue>
     where TValue : struct
 {
     protected Measure(string unit)

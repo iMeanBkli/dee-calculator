@@ -1,32 +1,27 @@
 ﻿using iMean.Tool.DailyNrjExpenditure.Business.Strategies;
-using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Provider;
 using iMean.Tool.DailyNrjExpenditure.Entities;
+using iMean.Tool.DailyNrjExpenditure.Entities.Measurement;
 
 namespace iMean.Tool.DailyNrjExpenditure.Business;
 
-public class DailyEnergyExpenditureCalculator
+public class DailyEnergyExpenditureCalculator : IDailyEnergyExpenditureCalculator
 {
     private readonly BasalMetabolicRateContext _context;
 
-    public DailyEnergyExpenditureCalculator()
+    public DailyEnergyExpenditureCalculator(BasalMetabolicRateContext context)
     {
-        _context = new BasalMetabolicRateContext();
+        _context = context;
     }
 
-    public EnergyExpenditure Compute(BodyInfo bodyInfo, decimal physicalActivityLevel)
-    {
-        var formula = FormulaProvider.GetDefaultFormula(bodyInfo);
-
-        return Compute(bodyInfo, physicalActivityLevel, formula);
-    }
-
-    public EnergyExpenditure Compute(BodyInfo bodyInfo, decimal physicalActivityLevel, IFormula formula)
+    public EnergyExpenditure Compute(BodyInfo bodyInfo, ActivityLevel activityLevel, IFormula formula)
     {
         if (bodyInfo == null)
             throw new ArgumentNullException(nameof(bodyInfo));
 
         var basalMetabolicRate = _context.Compute(bodyInfo, formula);
-        var dailyEnergyExpenditure = decimal.Multiply(basalMetabolicRate.Value, physicalActivityLevel);
+        
+        ActivityFactor activityFactor = activityLevel;
+        var dailyEnergyExpenditure = decimal.Multiply(basalMetabolicRate.Value, activityFactor.Value);
 
         return new EnergyExpenditure(dailyEnergyExpenditure);
     }

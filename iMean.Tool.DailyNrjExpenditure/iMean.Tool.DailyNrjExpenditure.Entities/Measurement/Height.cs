@@ -1,4 +1,4 @@
-﻿namespace iMean.Tool.DailyNrjExpenditure.Entities;
+﻿namespace iMean.Tool.DailyNrjExpenditure.Entities.Measurement;
 
 public class Height : Measure<decimal>
 {
@@ -8,7 +8,7 @@ public class Height : Measure<decimal>
     private static Dictionary<HeightUnit, string> LengthUnits = new Dictionary<HeightUnit, string>
     {
         { HeightUnit.Centimeter, "cm" },
-        { HeightUnit.Centimeter, "m" },
+        { HeightUnit.Meter, "m" },
     };
 
     public Height(decimal value)
@@ -17,7 +17,7 @@ public class Height : Measure<decimal>
     }
 
     public Height(decimal value, HeightUnit unit)
-        : base(LengthUnits[unit]) 
+        : base(LengthUnits[unit])
     {
         if (value < MinHeight)
             throw new ArgumentException($"", nameof(value));
@@ -26,5 +26,10 @@ public class Height : Measure<decimal>
             throw new ArgumentException($"", nameof(value));
 
         Value = value;
+    }
+
+    public decimal ToMeter()
+    {
+        return decimal.Divide(Value, 100m);
     }
 }
