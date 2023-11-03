@@ -12,7 +12,7 @@ public class Constant<T>
         _constants = new Dictionary<Gender, T>();
     }
 
-    public T GetValue(Gender gender)
+    public T GetValueForGender(Gender gender)
     {
         if (_constants.TryGetValue(gender, out T value)) 
             return value;

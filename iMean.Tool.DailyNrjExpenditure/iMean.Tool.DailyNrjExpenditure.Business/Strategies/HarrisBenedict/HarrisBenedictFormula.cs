@@ -18,7 +18,7 @@ public sealed class HarrisBenedictFormula : IHarrisBenedictFormula
         if (bodyInfo == null) 
             throw new ArgumentNullException(nameof(bodyInfo));
 
-        var bmrConstant = _constants.GetConstantByName(FormulaConstants.BmrConstantName);
+        var bmrConstant = _constants.GetConstantByName(FormulaConstants.BmrBaseConstantName);
         var weightConstant = _constants.GetConstantByName(FormulaConstants.WeightConstantName);
         var heightConstant = _constants.GetConstantByName(FormulaConstants.HeightConstantName);
         var ageConstant = _constants.GetConstantByName(FormulaConstants.AgeConstantName);
@@ -27,13 +27,13 @@ public sealed class HarrisBenedictFormula : IHarrisBenedictFormula
         var height = ApplyConstant(bodyInfo.Height.Value, bodyInfo.Gender, heightConstant);
         var age = ApplyConstant(bodyInfo.Age.Value, bodyInfo.Gender, ageConstant);
 
-        var result = bmrConstant.GetValue(bodyInfo.Gender) + weight + height - age;
+        var result = bmrConstant.GetValueForGender(bodyInfo.Gender) + weight + height - age;
 
         return new EnergyExpenditure(result);
     }
 
     private decimal ApplyConstant(decimal value, Gender gender, Constant<decimal> constant)
     {
-        return decimal.Multiply(constant.GetValue(gender), value);
+        return decimal.Multiply(constant.GetValueForGender(gender), value);
     }
 }

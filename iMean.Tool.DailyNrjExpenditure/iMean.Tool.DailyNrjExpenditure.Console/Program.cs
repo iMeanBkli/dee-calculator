@@ -2,7 +2,6 @@
 using iMean.Tool.DailyNrjExpenditure.Bootstrap.Resolvers;
 using iMean.Tool.DailyNrjExpenditure.Business;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.HarrisBenedict;
-using iMean.Tool.DailyNrjExpenditure.Business.Strategies.MifflinStJeor;
 using iMean.Tool.DailyNrjExpenditure.Entities;
 using Microsoft.Extensions.DependencyInjection;
 

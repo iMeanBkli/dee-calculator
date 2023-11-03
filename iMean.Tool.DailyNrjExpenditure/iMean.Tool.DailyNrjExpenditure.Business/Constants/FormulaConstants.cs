@@ -2,10 +2,10 @@
 {
     public abstract class FormulaConstants
     {
-        public const string BmrConstantName = "Bmr";
-        public const string HeightConstantName = "Height";
-        public const string WeightConstantName = "Weight";
-        public const string AgeConstantName = "Age";
+        public const string BmrBaseConstantName = "BmrBaseConstant";
+        public const string HeightConstantName = "BmrHeightConstant";
+        public const string WeightConstantName = "BmrWeightConstant";
+        public const string AgeConstantName = "BmrAgeConstant";
 
         protected Dictionary<string, Constant<decimal>> _formulaConstants;
 
