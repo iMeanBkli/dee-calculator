@@ -5,7 +5,6 @@ using iMean.Tool.DailyNrjExpenditure.Business.Strategies.KatchMcArdle;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.MifflinStJeor;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Owen;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Schofield;
-using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Who;
 
 namespace iMean.Tool.DailyNrjExpenditure.Bootstrap.Resolvers;
 
@@ -19,10 +18,8 @@ public class FormulaResolver : IFormulaResolver
         { nameof(IHarrisBenedictFormula), typeof(IHarrisBenedictFormula) },
         { nameof(IKatchMcArdleFormula), typeof(IKatchMcArdleFormula) },
         { nameof(IMifflinStJeorFormula), typeof(IMifflinStJeorFormula) },
-        { nameof(IMifflinStJeorRevisedFormula), typeof(IMifflinStJeorRevisedFormula) },
         { nameof(IOwenFormula), typeof(IOwenFormula) },
         { nameof(ISchofieldFormula), typeof(ISchofieldFormula) },
-        { nameof(IWorldHealthOrganizationFormula), typeof(IWorldHealthOrganizationFormula) },
     };
 
     public FormulaResolver(IServiceProvider serviceProvider)

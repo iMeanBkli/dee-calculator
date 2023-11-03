@@ -8,7 +8,6 @@ using iMean.Tool.DailyNrjExpenditure.Business.Strategies.KatchMcArdle;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.MifflinStJeor;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Owen;
 using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Schofield;
-using iMean.Tool.DailyNrjExpenditure.Business.Strategies.Who;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace iMean.Tool.DailyNrjExpenditure.Bootstrap.Extensions;
